@@ -1,0 +1,45 @@
+{
+	"name": "epson",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "NODE_ENV=production node dist/index.js",
+		"dev": "cross-env NODE_ENV=development nodemon dist/index.js",
+		"clean": "rimraf dist",
+		"watch": "yarn run clean && webpack --mode development -w",
+		"build": "yarn run clean && webpack --mode production"
+	},
+	"dependencies": {
+		"compression": "^1.7.4",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"express-favicon-short-circuit": "^1.2.0",
+		"express-winston": "^4.0.5",
+		"helmet": "^4.0.0",
+		"http-status": "^1.4.2",
+		"method-override": "^3.0.0",
+		"node-thermal-printer": "^4.1.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.11.1",
+		"@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+		"@babel/preset-env": "^7.11.0",
+		"babel-loader": "^8.1.0",
+		"chalk": "^4.1.0",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"eslint": ">=4.0.0",
+		"eslint-config-equimper": "2.2.2",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-react": "^7.20.5",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.4",
+		"rimraf": "^3.0.2",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
+		"webpack-node-externals": "^2.5.1",
+		"winston": "^3.3.3"
+	}
+}
