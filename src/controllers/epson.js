@@ -16,7 +16,18 @@ export const print = async (req, res, next) => {
 
 		const isConnected = await printer.isPrinterConnected();
 
-		return res.status(200).json({ connected: isConnected });
+		if (isConnected) {
+			printer.alignCenter();
+			printer.println('DEDA HOSPITAL');
+			printer.println('Testing New EMR');
+			printer.cut();
+
+			const execute = await printer.execute();
+
+			return res.status(200).json({ output: execute });
+		}
+
+		return res.status(500).json({ connected: isConnected });
 	} catch (e) {
 		e.status = HTTPStatus.BAD_REQUEST;
 		return next(e);
